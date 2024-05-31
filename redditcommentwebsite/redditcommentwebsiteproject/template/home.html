@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>Reddit comment website</h1>
+        <link rel="stylesheet" href="{% static 'style.css' %}"/>
+    </head>
+    <body>
+        <form action="/external/" method="post">
+            {% csrf_token %}
+            Input Text:
+            <input type ="text" name="param" required><br><br>
+            {{data_external}}<br><br>
+            {{data1}}
+            <br><br>
+            <input type="submit" value="Execute external python script">
+        </form>
+        <body>
+            {% if wordcloud %}
+                <img src="data:image/png;base64, {{wordcloud|safe}}"
+            {%endif%}
+        </body>
+        <body>
+            {% if emotiongraph %}
+                <img src="data:image/png;base64, {{emotiongraph|safe}}"
+            {%endif%}
+        </body>
+        <body>
+            {% if bargraph %}
+                <img src="data:image/png;base64, {{bargraph|safe}}"
+            {%endif%}
+        </body>
+        </body>
+            {% if badurl %}
+                you entered a badurl, please enter a different url!
+            {%endif%}
+        </body>
+    </body>
+</html>
